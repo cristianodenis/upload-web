@@ -19,7 +19,7 @@ function Task({match}) {
     const [type,setType] = useState();
     const [id,setId] = useState();
     const [done,setDone] = useState(false);
-    const [title,setTitle] = useState();
+    const [title,setTitle] = useState(match.params.title);
     const [description,setDescription] = useState();
     const [date,setDate] = useState();
     const [hour,setHour] = useState();
@@ -89,8 +89,8 @@ function Task({match}) {
       if(!isConnected)
         setRedirect(true);
         
-      LoadTaskDetails();
-    },[LoadTaskDetails])
+      //LoadTaskDetails();
+    },[])
 
   return(
     <S.Container>
