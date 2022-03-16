@@ -16,7 +16,7 @@ import iconClock from '../../assets/clock.png';
 
 function Task({match}) {
     const [redirect,setRedirect] = useState(false);
-    const [type,setType] = useState();
+    const [type,setType] = useState(match.params.title);
     const [id,setId] = useState();
     const [done,setDone] = useState(false);
     const [title,setTitle] = useState();
@@ -51,6 +51,7 @@ function Task({match}) {
       
 
       if(match.params.id){
+        alert(match.params.id)
         await api.put(`/tarefa/${match.params.id}`,{
           macaddress: isConnected,
           done,
@@ -89,8 +90,8 @@ function Task({match}) {
       if(!isConnected)
         setRedirect(true);
         
-      LoadTaskDetails();
-    },[LoadTaskDetails])
+     // LoadTaskDetails();
+    },[])
 
   return(
     <S.Container>
@@ -113,7 +114,7 @@ function Task({match}) {
         <S.Input>
            <span>Título</span>
            <input type="text" placeholder='Título da tarefa...'
-           onChangeText={e => setTitle(e.target.value)} 
+           onChangeText={(text) => setTitle(text)} 
            value={title} />
         </S.Input>
         
