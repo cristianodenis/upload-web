@@ -37,6 +37,7 @@ function Task({match}) {
     }
 
     async function Save(){
+      alert(match.params.id)
       //validação dos campos
       if(!title)
         return alert("Você precisa informar o títula da tarefa")
@@ -51,7 +52,6 @@ function Task({match}) {
       
 
       if(match.params.id){
-        alert(match.params.id)
         await api.put(`/tarefa/${match.params.id}`,{
           macaddress: isConnected,
           done,
@@ -114,7 +114,7 @@ function Task({match}) {
         <S.Input>
            <span>Título</span>
            <input type="text" placeholder='Título da tarefa...'
-           onChangeText={(text) => setTitle(text)} 
+           onChange={e => setTitle(e.target.value)} 
            value={title} />
         </S.Input>
         
