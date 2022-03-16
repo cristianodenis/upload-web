@@ -16,10 +16,10 @@ import iconClock from '../../assets/clock.png';
 
 function Task({match}) {
     const [redirect,setRedirect] = useState(false);
-    const [type,setType] = useState(match.params.title);
+    const [type,setType] = useState();
     const [id,setId] = useState();
     const [done,setDone] = useState(false);
-    const [title,setTitle] = useState();
+    const [title,setTitle] = useState(match.params.title);
     const [description,setDescription] = useState();
     const [date,setDate] = useState();
     const [hour,setHour] = useState();
