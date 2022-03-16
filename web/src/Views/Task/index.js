@@ -88,10 +88,10 @@ function Task({match}) {
     useEffect(() =>{
       if(!isConnected)
         setRedirect(true);
-        if(match.params.id){
+       
       LoadTaskDetails();
-        }
-    },[LoadTaskDetails])
+        
+    },[])
 
   return(
     <S.Container>
