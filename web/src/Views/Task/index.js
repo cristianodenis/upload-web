@@ -19,7 +19,7 @@ function Task({match}) {
     const [type,setType] = useState();
     const [id,setId] = useState();
     const [done,setDone] = useState(false);
-    const [title,setTitle] = useState();
+    const [title,setTitle] = useState(match.params.id);
     const [description,setDescription] = useState();
     const [date,setDate] = useState();
     const [hour,setHour] = useState();
@@ -89,8 +89,8 @@ function Task({match}) {
       if(!isConnected)
         setRedirect(true);
         
-      LoadTaskDetails();
-    },[LoadTaskDetails])
+      //LoadTaskDetails();
+    },[])
 
   return(
     <S.Container>
@@ -113,7 +113,7 @@ function Task({match}) {
         <S.Input>
            <span>Título</span>
            <input type="text" placeholder='Título da tarefa...'
-           onChangeCapture={(e) => setTitle(e.target.value)} 
+           onChange={e => setTitle(e.target.value)} 
            value={title} />
         </S.Input>
         
