@@ -113,19 +113,22 @@ function Task({match}) {
         <S.Input>
            <span>Título</span>
            <input type="text" placeholder='Título da tarefa...'
-           onChange={e => setTitle(e.target.value)} value={title} />
+           onChange={(text) => setTitle(text)} 
+           value={title} />
         </S.Input>
         
         <S.TextArea>
            <span>Descrição</span>
            <textarea rows={5} placeholder="Detalhes da tarefa..."
-           onChange={e => setDescription(e.target.value)} value={description} />
+           onChange={e => setDescription(e.target.value)} 
+           value={description} />
         </S.TextArea>
 
         <S.Input>
            <span>Data</span>
            <input type="date" placeholder='Título da tarefa...'
-           onChange={e => setDate(e.target.value)} value={date}/>
+           onChange={e => setDate(e.target.value)}
+            value={date}/>
            <img src={iconCalendar} alt="Calendário"/>
         </S.Input>
 
