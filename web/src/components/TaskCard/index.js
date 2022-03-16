@@ -16,7 +16,7 @@ function TaskCard({type,title,when,done}) {
        </S.TopCard>
        <S.BottomCard>
           <strong>{date}</strong>
-          <span>{hour}</span>
+          <span>{hour +3}</span>
        </S.BottomCard>
     </S.Container>
   )
