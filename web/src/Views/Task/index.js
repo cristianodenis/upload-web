@@ -37,7 +37,7 @@ function Task({match}) {
     }
 
     async function Save(){
-      alert(match.params.id)
+      alert(match.params.title)
       //validação dos campos
       if(!title)
         return alert("Você precisa informar o títula da tarefa")
