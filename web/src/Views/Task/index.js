@@ -19,7 +19,7 @@ function Task({match}) {
     const [type,setType] = useState();
     const [id,setId] = useState();
     const [done,setDone] = useState(false);
-    const [title,setTitle] = useState(match.params.title);
+    const [title,setTitle] = useState();
     const [description,setDescription] = useState();
     const [date,setDate] = useState();
     const [hour,setHour] = useState();
@@ -113,7 +113,7 @@ function Task({match}) {
         <S.Input>
            <span>Título</span>
            <input type="text" placeholder='Título da tarefa...'
-           onChangeText={(text) => setTitle(text)} 
+           onChangeText={e => setTitle(e.target.value)} 
            value={title} />
         </S.Input>
         
