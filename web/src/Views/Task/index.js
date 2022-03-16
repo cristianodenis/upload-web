@@ -113,7 +113,7 @@ function Task({match}) {
         <S.Input>
            <span>Título</span>
            <input type="text" placeholder='Título da tarefa...'
-           onChange={(text) => setTitle(text)} 
+           onChangeText={(text) => setTitle(text)} 
            value={title} />
         </S.Input>
         
