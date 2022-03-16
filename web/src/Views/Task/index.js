@@ -19,7 +19,7 @@ function Task({match}) {
     const [type,setType] = useState();
     const [id,setId] = useState();
     const [done,setDone] = useState(false);
-    const [title,setTitle] = useState(match.params.id);
+    const [title,setTitle] = useState();
     const [description,setDescription] = useState();
     const [date,setDate] = useState();
     const [hour,setHour] = useState();
@@ -88,9 +88,10 @@ function Task({match}) {
     useEffect(() =>{
       if(!isConnected)
         setRedirect(true);
-        
-      //LoadTaskDetails();
-    },[])
+        if(match.params.id){
+      LoadTaskDetails();
+        }
+    },[LoadTaskDetails])
 
   return(
     <S.Container>
