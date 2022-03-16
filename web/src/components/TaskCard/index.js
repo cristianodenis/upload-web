@@ -7,6 +7,7 @@ import typeIcons from '../../utils/typeIcons';
 function TaskCard({type,title,when,done}) {
   const date = useMemo(()=> format(new Date(when),'dd/MM/yyyy'));
   const hour = useMemo(()=> format(new Date(when),'HH:mm'));
+  const hora = parseInt(hour);
 
   return (
     <S.Container done={done}>
@@ -16,7 +17,7 @@ function TaskCard({type,title,when,done}) {
        </S.TopCard>
        <S.BottomCard>
           <strong>{date}</strong>
-          <span>{hour +3}</span>
+          <span>{hora +3}</span>
        </S.BottomCard>
     </S.Container>
   )
