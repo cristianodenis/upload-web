@@ -19,7 +19,7 @@ function Task({match}) {
     const [type,setType] = useState();
     const [id,setId] = useState();
     const [done,setDone] = useState(false);
-    const [title,setTitle] = useState(match.params.title);
+    const [title,setTitle] = useState();
     const [description,setDescription] = useState();
     const [date,setDate] = useState();
     const [hour,setHour] = useState();
@@ -37,7 +37,6 @@ function Task({match}) {
     }
 
     async function Save(){
-      alert(match.params.title)
       //validação dos campos
       if(!title)
         return alert("Você precisa informar o títula da tarefa")
@@ -54,10 +53,10 @@ function Task({match}) {
       if(match.params.id){
         await api.put(`/tarefa/${match.params.id}`,{
           macaddress: isConnected,
-          done,
-          type,
-          title,
-          description,
+          done:done,
+          type:type,
+          title:title,
+          description:description,
           when: `${date}T${hour}:00.000`
         })
         .then( ()=>
@@ -90,8 +89,8 @@ function Task({match}) {
       if(!isConnected)
         setRedirect(true);
         
-     // LoadTaskDetails();
-    },[])
+      LoadTaskDetails();
+    },[LoadTaskDetails])
 
   return(
     <S.Container>
