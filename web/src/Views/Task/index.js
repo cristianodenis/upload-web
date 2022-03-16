@@ -23,6 +23,7 @@ function Task({match}) {
     const [description,setDescription] = useState();
     const [date,setDate] = useState();
     const [hour,setHour] = useState();
+    const hora = parseFloat(hour);
 
     async function LoadTaskDetails(){
      await api.get(`/tarefa/${match.params.id}`)
@@ -136,7 +137,7 @@ function Task({match}) {
         <S.Input>
            <span>Hora</span>
            <input type="time" placeholder='Título da tarefa...'
-           onChange={e => setHour(e.target.value)} value={hour}/>
+           onChange={e => setHour(e.target.value)} value={hora +3}/>
            <img src={iconClock} alt="Relógio"/>
         </S.Input>
 
