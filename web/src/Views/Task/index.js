@@ -89,8 +89,8 @@ function Task({match}) {
       if(!isConnected)
         setRedirect(true);
         
-      //LoadTaskDetails();
-    },[])
+      LoadTaskDetails();
+    },[LoadTaskDetails])
 
   return(
     <S.Container>
