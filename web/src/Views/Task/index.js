@@ -53,10 +53,10 @@ function Task({match}) {
       if(match.params.id){
         await api.put(`/tarefa/${match.params.id}`,{
           macaddress: isConnected,
-          done:done,
-          type:type,
-          title:title,
-          description:description,
+          done,
+          type,
+          title,
+          description,
           when: `${date}T${hour}:00.000`
         })
         .then( ()=>
@@ -113,7 +113,7 @@ function Task({match}) {
         <S.Input>
            <span>Título</span>
            <input type="text" placeholder='Título da tarefa...'
-           onChange={e => setTitle(e.target.value)} 
+           onChangeCapture={e => setTitle(e.target.value)} 
            value={title} />
         </S.Input>
         
